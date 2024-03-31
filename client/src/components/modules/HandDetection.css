@@ -1,0 +1,26 @@
+video {
+  clear: both;
+  display: block;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+} 
+
+.HD-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.HD-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+
+.HD-contianer {
+  position: relative;
+}
