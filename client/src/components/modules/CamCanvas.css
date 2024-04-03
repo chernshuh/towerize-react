@@ -1,0 +1,27 @@
+.CamCanvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.CamCanvas-video {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+  /* clear: both;
+  display: block; */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.CamCanvas-canvas {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}

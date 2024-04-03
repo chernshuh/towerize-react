@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
 import Skeleton from "./pages/Skeleton";
+import Test from "./pages/Test";
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
 import "../utilities.css";
@@ -54,7 +55,8 @@ const App = () => {
           }
           path="/"
         />
-        <Route path="*" element={<NotFound />} />
+        <Route element={<Test />} path="/test" />
+        <Route element={<NotFound />} path="*" />
       </Routes>
     </BrowserRouter>
   );
