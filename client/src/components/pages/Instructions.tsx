@@ -7,7 +7,7 @@ import "./Instructions.css";
 type Props = {};
 
 const Instructions = (props: Props) => {
-  const [focusedSection, setFocusedSection] = useState(1);
+  const [focusedSection, setFocusedSection] = useState(2);
   return (
     <div className="u-flex">
       <div className="Instructions-sidebar"></div>
