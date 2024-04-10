@@ -6,7 +6,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
 import Skeleton from "./pages/Skeleton";
-import Test from "./pages/Test";
+import Home from "./pages/Home";
+import Instructions from "./pages/Instructions";
+import Profile from "./pages/Profile";
+import Creation from "./pages/Creation";
+import NavBar from "./modules/NavBar";
 import { socket } from "../client-socket";
 import User from "../../../shared/User";
 import "../utilities.css";
@@ -48,14 +52,18 @@ const App = () => {
   // All the pages need to have the props extended via RouteComponentProps for @reach/router to work properly. Please use the Skeleton as an example.
   return (
     <BrowserRouter>
+      <NavBar userId={userId} />
       <Routes>
-        <Route
+        {/* <Route
           element={
             <Skeleton handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
           }
           path="/"
-        />
-        <Route element={<Test />} path="/test" />
+        /> */}
+        <Route element={<Home />} path="/" />
+        <Route element={<Instructions />} path="/instructions" />
+        <Route element={<Profile />} path="/profile" />
+        <Route element={<Creation />} path="/creation" />
         <Route element={<NotFound />} path="*" />
       </Routes>
     </BrowserRouter>

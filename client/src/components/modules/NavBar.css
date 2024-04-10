@@ -1,0 +1,33 @@
+.NavBar-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 64px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBar-home-white {
+  padding: 24px 24px 24px;
+  font-size: 24px;
+  color: var(--white);
+
+  cursor: pointer;
+}
+
+.NavBar-home-flame {
+  padding: 24px 24px 24px;
+  font-size: 24px;
+  color: var(--flame);
+
+  cursor: pointer;
+}
+
+.NavBar-links {
+  width: 400px;
+  margin-right: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

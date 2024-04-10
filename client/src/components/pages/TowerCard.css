@@ -1,0 +1,33 @@
+.TowerCard-container {
+  width: 288px;
+  height: 384px;
+
+  background: var(--white);
+  border: 1px dashed var(--black);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  margin-right: 24px;
+
+  cursor: pointer;
+}
+
+.TowerCard-container-focus {
+  width: 288px;
+  height: 384px;
+  color: var(--flame);
+
+  background: var(--white);
+  border: 2px solid var(--flame);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  margin-right: 24px;
+
+  cursor: pointer;
+}
+
+.TowerCard-date {
+  font-size: 12px;
+  margin: 12px;
+}

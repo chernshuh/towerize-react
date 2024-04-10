@@ -1,40 +1,49 @@
-/**
-* Welcome to your ✨𝔲𝔱𝔦𝔩𝔦𝔱𝔶 𝔰𝔱𝔶𝔩𝔢𝔰✨!
-* This file includes utility classes that are super simple
-* and can be used to add general styles; variable definitions
-* for colors; and styles to html, body, and other high level
-* DOMs.
-* 
-* All utility classes start with a `u-` and all do
-* one basic CSS thing (for example, making the font-weight
-* 600 for bolding) or are super generic.
-* 
-* This is 𝙉𝙊𝙏 the place to define classes for components or
-* do rigorous styling. You shoud not need to change this file
-* much after initial creation.
-*/
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* TODO: REPLACE WITH YOUR OWN FONT! */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 16;
+  padding-top: 4px
+}
+
+.noto-sans {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.newsreader {
+  font-family: "Newsreader", serif;
+}
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
+  --flame: #ff6600;
+  --yellow: #ffff66;
+  --red: #ff0033;
+  --orange: #ff7f00;
+  --blood: #cc0000;
+  --black: #000000;
   --darkgrey: #d4d4d4;
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
-  --white: #fff;
+  --white: #ffffff;
 
   --xs: 4px;
   --s: 8px;
   --m: 16px;
   --l: 24px;
+  --xl: 48px;
+  --xxl: 96px;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Newsreader", serif;
   font-weight: 300;
 }
 
@@ -80,11 +89,91 @@ form {
 }
 
 .u-link {
-  color: var(--primary);
+  /* color: var(--primary); */
   text-decoration: none;
   cursor: pointer;
 }
 
-.u-link:hover {
+/* .u-link:hover {
   color: var(--primary--dim);
+} */
+
+.u-button-white {
+  width: 120px;
+  height: 32px;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  
+  color: var(--white);
+  font-size: var(--m);
+  font-family: "Noto Sans", sans-serif;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 1%;
+}
+
+.u-button-white-no-border {
+  height: 32px;
+  
+  color: var(--white);
+  font-size: var(--m);
+  font-family: "Noto Sans", sans-serif;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.u-button-black {
+  width: 120px;
+  height: 32px;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  
+  color: var(--black);
+  font-size: var(--m);
+  font-family: "Noto Sans", sans-serif;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 1%;
+}
+
+.u-button-black-no-border {
+  height: 32px;
+  
+  color: var(--black);
+  font-size: var(--m);
+  font-family: "Noto Sans", sans-serif;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.u-fade {
+  opacity: 0.5;
+}
+
+.u-useRed {
+  color: var(--blood);
+  border: 1px solid var(--blood);
+}
+
+.u-useFlame {
+  color: var(--flame);
+  border: 1px solid var(--flame);
 }

@@ -1,0 +1,35 @@
+.Home-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--flame);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.Home-copyright {
+  position: fixed;
+
+  color: var(--white);
+  bottom: 16px;
+  right: 16px;
+}
+
+.Home-link {
+  color: var(--white);
+}
+
+.Home-towers {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Home-texts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--white);
+  font-size: var(--xl);
+}

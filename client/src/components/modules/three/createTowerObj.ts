@@ -8,29 +8,27 @@ import Points from "./utils/Points";
 
 type Props = {
   radius: number;
-  height: number;
   gradient: number;
-  numPoints: number;
-  phi: number;
-  numSegments: number;
+  plainStyle: boolean;
 }
 
 const createTowerObj = (props: Props) => {
   const towerObj = new THREE.Group()
+  const properties = {...props, height: 5.4, numPoints: 13, phi: (Math.PI * 5) / 6, numSegments: 14}
 
-  const points = Points(props);
+  const points = Points(properties);
 
   const lines = points.bottomPoints.map((point, index) =>
     Cylinder({
       geometry: { startPoint: point, endPoint: points.topPoints[index] },
-      style: { color: new THREE.Color(0xff6600), width: 0.02 },
+      style: { color: new THREE.Color(props.plainStyle?0xffffff:0xff6600), width: 0.02 },
     })
   );
 
   const whirledLines = points.topPointsWhirled.map((point, index) =>
     Cylinder({
       geometry: { startPoint: point, endPoint: points.bottomPointsWhirled[index] },
-      style: { color: new THREE.Color(0xffff66), width: 0.02 },
+      style: { color: new THREE.Color(props.plainStyle?0xffffff:0xffff66), width: 0.02 },
     })
   );
 
@@ -41,7 +39,7 @@ const createTowerObj = (props: Props) => {
         circleLookAt: new THREE.Vector3(0, 0, 1),
         circleRadius: point.distanceTo(points.tiltedPoints[index]),
       },
-      style: { dashedScale: 0.5, width: 0.03, color: new THREE.Color(0xff0033) },
+      style: { dashedScale: 0.5, width: 0.03, color: new THREE.Color(props.plainStyle?0xffffff:0xff0033) },
     })
   );
 
@@ -51,7 +49,7 @@ const createTowerObj = (props: Props) => {
       circleLookAt: new THREE.Vector3(0, 0, 1),
       circleRadius: points.verticalPoints[0].distanceTo(points.tiltedPoints[0]),
     },
-    style: { dashedScale: 0, width: 0.03, color: new THREE.Color(0xff0033) },
+    style: { dashedScale: 0, width: 0.03, color: new THREE.Color(props.plainStyle?0xffffff:0xff0033) },
   });
 
   circles[circles.length - 1] = Circle({
@@ -62,20 +60,20 @@ const createTowerObj = (props: Props) => {
         points.tiltedPoints[circles.length - 1]
       ),
     },
-    style: { dashedScale: 0, width: 0.03, color: new THREE.Color(0xff0033) },
+    style: { dashedScale: 0, width: 0.03, color: new THREE.Color(props.plainStyle?0xffffff:0xff0033) },
   });
 
   const topSpheres = points.topPoints.map((point) =>
     Sphere({
       geometry: { sphereCenter: point },
-      style: { sphereRadius: 0.1, color: new THREE.Color(0xcc0000) },
+      style: { sphereRadius: 0.1, color: new THREE.Color(props.plainStyle?0xffffff:0xcc0000) },
     })
   );
 
   const bottomSpheres = points.bottomPoints.map((point) =>
   Sphere({
     geometry: { sphereCenter: point },
-    style: { sphereRadius: 0.1, color: new THREE.Color(0xcc0000) },
+    style: { sphereRadius: 0.1, color: new THREE.Color(props.plainStyle?0xffffff:0xcc0000) },
   })
 );
 
@@ -86,9 +84,9 @@ const createTowerObj = (props: Props) => {
       geometry: {
         sphereCenter: points.verticalPoints[0]
           .clone()
-          .add(new THREE.Vector3(0, 0, (3 / 5) * props.height)),
+          .add(new THREE.Vector3(0, 0, (3 / 5) * properties.height)),
       },
-      style: { sphereRadius: 0.1, color: new THREE.Color(0xff7f00) },
+      style: { sphereRadius: 0.1, color: new THREE.Color(props.plainStyle?0xffffff:0xff7f00) },
     })
   );
 
@@ -98,9 +96,9 @@ const createTowerObj = (props: Props) => {
         startPoint: points.verticalPoints[0],
         endPoint: points.verticalPoints[0]
           .clone()
-          .add(new THREE.Vector3(0, 0, (3 / 5) * props.height)),
+          .add(new THREE.Vector3(0, 0, (3 / 5) * properties.height)),
       },
-      style: { color: new THREE.Color(0xff7f00), width: 0.05 },
+      style: { color: new THREE.Color(props.plainStyle?0xffffff:0xff7f00), width: 0.05 },
     })
   );
 

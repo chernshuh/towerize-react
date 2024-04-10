@@ -1,0 +1,31 @@
+.SingleSection-square {
+  width: 48px;
+  height: 48px;
+  background-color: var(--flame);
+}
+
+.SingleSection-id {
+  font-size: 36px;
+  color: var(--white);
+  font-weight: 600;
+
+  margin-top: 18px;
+  margin-left: 22px;
+}
+
+.SingleSection-title {
+  font-size: 36px;
+  font-weight: 600;
+
+  margin: 18px 0px 24px;
+  margin-left: 36px;
+}
+
+.SingleSection-content {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.SingleSection-container {
+  margin: 24px 0px;
+}

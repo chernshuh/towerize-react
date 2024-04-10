@@ -1,0 +1,11 @@
+.Instructions-sidebar {
+  background-color: var(--flame);
+  width: 24%;
+  height: 100vh;
+}
+
+.Instructions-container {
+  width: 76%;
+  margin-top: 64px;
+  padding: 96px 64px
+}
