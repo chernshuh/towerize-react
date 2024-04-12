@@ -1,0 +1,14 @@
+.Introduction-sidebar {
+  background-color: var(--flame);
+  width: 24vw;
+  height: 100vh;
+}
+
+.Introduction-container {
+  margin-top: 64px;
+  width: 76vw;
+  height: calc(100vh - 64px);
+  align-items: center;
+
+  overflow-y: scroll;
+}

@@ -103,6 +103,7 @@
   display: flex;
   /* padding-left: 24px; */
   align-items: center;
+  justify-content: center;
 }
 
 .Creation-buttonContainer {
@@ -127,4 +128,12 @@
 
 .Creation-propControl-text {
   color: var(--flame)
+}
+
+.Creation-saveBtn {
+  width: 100px;
+}
+
+.Creation-loginBtn {
+  width: 150px;
 }

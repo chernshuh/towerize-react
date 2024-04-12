@@ -1,10 +1,6 @@
 import React from "react";
-
-import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from "@react-oauth/google";
-
-const GOOGLE_CLIENT_ID = "692003849253-cs1pp74i51tf8r4psv73qve0lgbhljb4.apps.googleusercontent.com";
-
 import { useLocation, useNavigate } from "react-router";
+import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from "@react-oauth/google";
 
 import "./NavBar.css";
 
@@ -13,11 +9,17 @@ type Props = {
   handleLogin: (credentialResponse: CredentialResponse) => void;
 };
 
-const NavBar = (props: Props) => {
-  const currentPath = useLocation().pathname;
-  const navigate = useNavigate();
+const GOOGLE_CLIENT_ID = "692003849253-cs1pp74i51tf8r4psv73qve0lgbhljb4.apps.googleusercontent.com";
 
-  const handleLogin = props.handleLogin;
+const NavBar = (props: Props) => {
+  const navigate = useNavigate();
+  const currentPath = useLocation().pathname;
+
+  const handleLogin = (credentialResponse: CredentialResponse) => {
+    props.handleLogin(credentialResponse);
+    // other things
+  };
+
   return (
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <div className="NavBar-container noto-sans">
@@ -48,9 +50,9 @@ const NavBar = (props: Props) => {
             className={
               currentPath === "/" ? "u-button-white-no-border" : "u-button-black-no-border"
             }
-            onClick={() => navigate("/instructions")}
+            onClick={() => navigate("/introduction")}
           >
-            Instructions
+            Introduction
           </div>
           <div
             className={currentPath === "/" ? "u-button-white" : "u-button-black"}

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { googleLogout } from "@react-oauth/google";
 import { useNavigate } from "react-router";
+import { googleLogout } from "@react-oauth/google";
 
 import User from "../../../../shared/User";
+import Tower from "../../../../shared/Tower";
+
 import { get } from "../../utilities";
 import { requestDelete } from "../../utilities";
 
 import TowerCard from "../modules/TowerCard";
 import "./Profile.css";
-import { set } from "mongoose";
-
-import Tower from "../../../../shared/Tower";
-import { create } from "ts-node";
 
 type Props = { userId: string | undefined; handleLogout: () => void };
 
@@ -22,7 +20,7 @@ const Profile = (props: Props) => {
   const [towers, setTowers] = useState<Tower[]>([]);
 
   useEffect(() => {
-    get(`/api/user`, { userid: props.userId }).then((userObj) => setUser(userObj));
+    get("/api/user", { userid: props.userId }).then((userObj) => setUser(userObj));
   }, []);
 
   useEffect(() => {
@@ -31,7 +29,7 @@ const Profile = (props: Props) => {
     });
   }, []);
 
-  const [selectedTowers, setSelectedTowers] = useState<string[]>([]); // [towerID1, towerID2, ...]
+  const [selectedTowers, setSelectedTowers] = useState<string[]>([]); // Selected tower IDs
 
   const handleLogout = props.handleLogout;
 
@@ -79,7 +77,6 @@ const Profile = (props: Props) => {
           <div className="Profile-avatar" />
         </div>
         <div className="Profile-name noto-sans">{user?.name}</div>
-        {/* <div className="Profile-button">Switch Account</div> */}
         <div
           className="Profile-button"
           onClick={() => {

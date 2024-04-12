@@ -1,14 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import { post } from "../../utilities";
-
 import { HandLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
 import { drawLandmarks, drawConnectors } from "../modules/mediapipe/drawingUtils";
+import { GoogleOAuthProvider, useGoogleLogin, CredentialResponse } from "@react-oauth/google";
+
+import { post } from "../../utilities";
 
 import TowerAdjustable from "../modules/TowerAdjustable";
 import "./Creation.css";
-import { create } from "ts-node";
 
-type Props = { userId: string | undefined };
+type Props = {
+  userId: string | undefined;
+};
 
 const MODEL_PATH =
   "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task";
@@ -16,6 +18,7 @@ const BASE_WASM = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/w
 
 const Creation = (props: Props) => {
   const [tower, setTower] = useState({ radius: 0.7, gradient: 4 });
+
   const handleSave = () => {
     if (props.userId) {
       const body = tower;
@@ -31,12 +34,14 @@ const Creation = (props: Props) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const countdownCanvasRef = useRef<HTMLCanvasElement>(null);
+
   const countdownFrom = 5;
   let countdown = countdownFrom;
 
   const onComplete = (ctx) => {
+    ctx.font = "24px sans-serif";
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.fillText("Complete", ctx.canvas.width / 2, ctx.canvas.height / 2);
+    ctx.fillText("COMPLETE!", 20, 80);
     setTimeout(() => {
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       setPredicting(false);
@@ -53,12 +58,12 @@ const Creation = (props: Props) => {
   const countdownDraw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    ctx.font = "48px sans-serif";
-    ctx.textAlign = "center";
+    ctx.font = "36px sans-serif";
+    ctx.textAlign = "left";
     ctx.textBaseline = "top";
-    ctx.fillStyle = "#cc0000";
+    ctx.fillStyle = "#ffffff";
 
-    ctx.fillText(countdown.toString(), ctx.canvas.width / 2, ctx.canvas.height / 2);
+    ctx.fillText(countdown.toString(), 20, 80);
   };
 
   const countdownAnimate = (ctx) => {
@@ -316,9 +321,19 @@ const Creation = (props: Props) => {
         <TowerAdjustable tower={tower} canvas={{ width: 700, height: 700 }} />
       </div>
       <div className="Creation-buttonContainer">
-        <div className="Creation-button" onClick={handleSave}>
-          <p style={{ padding: 24 }}>Save</p>
-        </div>
+        {props.userId ? (
+          <div className="Creation-saveBtn">
+            <div className="Creation-button" onClick={handleSave}>
+              <p style={{ padding: 24 }}>Save</p>
+            </div>
+          </div>
+        ) : (
+          <div className="Creation-loginBtn">
+            <div className="Creation-button u-fade">
+              <p style={{ padding: 24 }}>Log in to Save</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { get, post } from "../utilities";
 import NotFound from "./pages/NotFound";
 import Skeleton from "./pages/Skeleton";
 import Home from "./pages/Home";
-import Instructions from "./pages/Instructions";
+import Introduction from "./pages/Introduction";
 import Profile from "./pages/Profile";
 import Creation from "./pages/Creation";
 import NavBar from "./modules/NavBar";
@@ -22,7 +22,7 @@ const App = () => {
     get("/api/whoami")
       .then((user: User) => {
         if (user._id) {
-          // TRhey are registed in the database and currently logged in.
+          // They are registed in the database and currently logged in.
           setUserId(user._id);
         }
       })
@@ -48,20 +48,12 @@ const App = () => {
     post("/api/logout");
   };
 
-  // NOTE:
-  // All the pages need to have the props extended via RouteComponentProps for @reach/router to work properly. Please use the Skeleton as an example.
   return (
     <BrowserRouter>
       <NavBar handleLogin={handleLogin} userId={userId} />
       <Routes>
-        {/* <Route
-          element={
-            <Skeleton handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-          }
-          path="/"
-        /> */}
         <Route element={<Home />} path="/" />
-        <Route element={<Instructions />} path="/instructions" />
+        <Route element={<Introduction />} path="/introduction" />
         <Route element={<Profile userId={userId} handleLogout={handleLogout} />} path="/profile" />
         <Route element={<Creation userId={userId} />} path="/creation" />
         <Route element={<NotFound />} path="*" />

@@ -15,17 +15,11 @@ type Props = {
     width: number;
     height: number;
   };
-  // setTower: React.Dispatch<
-  //   React.SetStateAction<{
-  //     radius: number;
-  //     gradient: number;
-  //   }>
-  // >;
+  plainStyle?: boolean;
 };
 
 const TowerAdjustable = (props: Props) => {
   const tower = props.tower;
-  // const setTower = props.setTower;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animateIdRef = useRef<number>();
@@ -70,7 +64,7 @@ const TowerAdjustable = (props: Props) => {
 
   useEffect(() => {
     const scene = sceneRef.current;
-    const towerObj = createTowerObj({ ...tower, plainStyle: false });
+    const towerObj = createTowerObj({ ...tower, plainStyle: props.plainStyle ? true : false });
 
     scene.clear();
     scene.add(towerObj);
