@@ -1,13 +1,3 @@
-/**
- * Utility functions to make API requests.
- * By importing this file, you can use the provided get and post functions.
- * You shouldn't need to modify this file, but if you want to learn more
- * about how these functions work, google search "Fetch API"
- *
- * These functions return promises, which means you should use ".then" on them.
- * e.g. get('/api/foo', { bar: 0 }).then(res => console.log(res))
- */
-
 const formatParams = (params: object) => {
   return Object.keys(params)
     .map((key) => `${key}=${encodeURIComponent(params[key])}`)
@@ -55,3 +45,16 @@ export const post = (endpoint: string, params: object = {}) => {
       throw `POST request to ${endpoint} failed with error:\n${error}`;
     });
 };
+
+export const requestDelete = (endpoint: string, params: object = {}) => {
+  return fetch(endpoint, {
+    method: "delete",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(params),
+  })
+    .then(convertToJSON) // convert result to JSON object
+    .catch((error) => {
+      // give a useful error message
+      throw `DELETE request to ${endpoint} failed with error:\n${error}`;
+    });
+}

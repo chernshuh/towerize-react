@@ -2,9 +2,11 @@
   width: 36vw;
   height: 100vh;
 
-  padding-top: 128px;
-
   align-items: center;
+}
+
+.Creation-paddingDiv {
+  padding-top: 128px;
 }
 
 .Creation-canvasContainer {
@@ -18,9 +20,50 @@
   width: 32vw;
   height: 18vw;
   
-  background-color: var(--medgrey);
+  background-color: var(--black);
 
   border-radius: 15px;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.Creation-video {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Creation-canvas {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Creation-countdownCanvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .Creation-controls {
@@ -73,3 +116,15 @@
   align-items: center;
   justify-content: center;
 } */
+
+.Creation-propControl {
+  /* color: var(--falme) */
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 12px;
+}
+
+.Creation-propControl-text {
+  color: var(--flame)
+}

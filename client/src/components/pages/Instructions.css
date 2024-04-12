@@ -1,11 +1,17 @@
 .Instructions-sidebar {
   background-color: var(--flame);
-  width: 24%;
+  width: 24vw;
   height: 100vh;
 }
 
 .Instructions-container {
-  width: 76%;
+  width: 76vw;
+  height: 100vh;
+  /* margin-top: 64px; */
+  /* padding: 96px 64px */
+}
+
+.Instructions-paddingDiv {
   margin-top: 64px;
-  padding: 96px 64px
+  padding: 96px 64px 0px;
 }

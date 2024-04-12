@@ -52,7 +52,7 @@ const App = () => {
   // All the pages need to have the props extended via RouteComponentProps for @reach/router to work properly. Please use the Skeleton as an example.
   return (
     <BrowserRouter>
-      <NavBar userId={userId} />
+      <NavBar handleLogin={handleLogin} userId={userId} />
       <Routes>
         {/* <Route
           element={
@@ -62,8 +62,8 @@ const App = () => {
         /> */}
         <Route element={<Home />} path="/" />
         <Route element={<Instructions />} path="/instructions" />
-        <Route element={<Profile />} path="/profile" />
-        <Route element={<Creation />} path="/creation" />
+        <Route element={<Profile userId={userId} handleLogout={handleLogout} />} path="/profile" />
+        <Route element={<Creation userId={userId} />} path="/creation" />
         <Route element={<NotFound />} path="*" />
       </Routes>
     </BrowserRouter>

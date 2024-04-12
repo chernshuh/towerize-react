@@ -166,6 +166,7 @@ form {
 
 .u-fade {
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .u-useRed {
@@ -176,4 +177,35 @@ form {
 .u-useFlame {
   color: var(--flame);
   border: 1px solid var(--flame);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+   appearance: none;
+   background: transparent;
+   cursor: pointer;
+   width: 15rem;
+}
+
+input[type="range"]:focus {
+ outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  /* background-color: var(--flame); */
+  border: 1px solid var(--flame);
+  border-radius: 5px;
+  height: 32px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none;
+  appearance: none;
+  margin-top: -1px;
+
+  background-color: var(--flame);
+  height: 32px;
+  width: 12px;
+
+  border-radius: 5px;
 }
